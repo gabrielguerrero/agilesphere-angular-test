@@ -1,0 +1,14 @@
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">City</th>
+    <th scope="row" *ngFor="let item of weather.forecast">{{item.date | date: 'h a'}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td scope="row">{{weather.city}}</td>
+    <td scope="row" *ngFor="let item of weather.forecast">{{item.temperature}} &deg;</td>
+  </tr>
+  </tbody>
+</table>
