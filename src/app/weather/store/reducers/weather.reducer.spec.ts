@@ -52,6 +52,7 @@ describe('Search Reducer', () => {
 
     expect(result).toEqual({
       ...stateFixture,
+      results: undefined,
       error: 'error',
       loading: false,
     });

@@ -17,7 +17,7 @@ export function reducer(state = initialState, action: actions.weather.Actions) {
       return { ...state, results: action.results, loading: false, error: undefined };
     }
     case actions.weather.SEARCH_FAIL: {
-      return { ...state, loading: false, error: action.reason };
+      return { ...state, loading: false, error: action.reason, results: undefined };
     }
     default: {
       return state;

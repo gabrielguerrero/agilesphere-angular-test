@@ -1,4 +1,4 @@
-import { Component, OnChanges, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { CityWeather } from '../../models/weather';
 
 @Component({
