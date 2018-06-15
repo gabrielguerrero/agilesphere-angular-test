@@ -12,10 +12,18 @@ describe('angular-weather App', () => {
     expect(page);
     await page.navigateTo();
     await page.searchCity('Caracas');
+
     const headers = await page.getTableHeaders();
-    expect(headers).toEqual(['City', '12 AM', '6 AM', '12 PM', '6 PM']);
+    expect(headers[0]).toEqual('City');
+    expect(headers.length).toEqual(5);
+    // @ts-ignore
+    headers.slice(1).forEach(i => expect(i).toMatch(/\d+\s\w{2}/));
+
     const data = await page.getTableData();
-    expect(data).toEqual(['Caracas', '28.08 °', '25.92 °', '25.45 °', '26.36 °']);
+    expect(data[0]).toEqual('Caracas');
+    expect(data.length).toEqual(5);
+    // @ts-ignore
+    data.slice(1).forEach(i => expect(i).toMatch(/\d+\s°/));
   });
 
   it('checkl invalid search shows nothing', async () => {
